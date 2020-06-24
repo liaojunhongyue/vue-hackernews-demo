@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 // route-level code splitting
-const main = () => import('../views/main.vue')
+const Index = () => import('../views/index.vue')
 
 export function createRouter () {
   return new Router({
@@ -12,7 +12,7 @@ export function createRouter () {
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: '/', component: main }
+      { path: '/', component: Index }
     ]
   })
 }

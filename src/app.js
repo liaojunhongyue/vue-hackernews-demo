@@ -5,6 +5,9 @@ import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import * as filters from './util/filters'
 
+// normalize
+import 'normalize.css/normalize.css'
+
 // register global utility filters.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

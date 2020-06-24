@@ -15,11 +15,12 @@ app.all('*', function(req, res, next) {
 })
 
 const appData = require('./data.json')
+const questionsData = appData.question
 app.get('/api/question', (req, res) => {
   res.json({
     code: 0,
     message: 'success',
-    data: appData
+    data: questionsData
   })
 })
 

@@ -1,8 +1,34 @@
 {
   "question": [
     {
-      "title": "问题",
-      "content": "问题答案"
+      "id": 1,
+      "title": "Vue中的this的指向？",
+      "answer": "在Vue所有生命周期方法里使用this，this指向调用它的Vue实例。"
+    },
+    {
+      "id": 2,
+      "title": "Vue中的computed？",
+      "answer": "computed：计算属性，当其依赖的属性值发生变化时，计算属性会重新计算，反之，则使用缓存中的属性值。"
+    },
+    {
+      "id": 3,
+      "title": "computed数据在生命周期的什么时候会被加载？",
+      "content": "在beforeCreated和created之间完成的。props、methods、data和computed的初始化都是在beforeCreated和created之间完成的。"
+    },
+    {
+      "id": 4,
+      "title": "Vue生命周期中的mounted？",
+      "content": "在mounted阶段，对浏览器来说，已经完成了dom与css规则树的渲染，并完成了渲染树的布局，vue的template成功挂载在$el中，所以在这一阶段，可以调用节点了。"
+    },
+    {
+      "id": 5,
+      "title": "created周期取页面的dom元素会成功吗？",
+      "content": "不会，因为在created阶段，dom并未初始化渲染好。"
+    },
+    {
+      "id": 6,
+      "title": "项目的数据为什么放在mounted里面而不是created里面？",
+      "content": "因为在created里面，vue的template并未挂载在$el中，所以如果想要操作dom，要将数据放在mounted里面。"
     }
   ]
 }

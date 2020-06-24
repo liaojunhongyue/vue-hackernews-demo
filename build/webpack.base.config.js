@@ -60,6 +60,10 @@ module.exports = {
             })
           : ['vue-style-loader', 'css-loader', 'stylus-loader']
       },
+      {
+        test: /\.css$/,
+        loader: 'css-loader'
+      }
     ]
   },
   performance: {
