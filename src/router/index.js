@@ -6,7 +6,7 @@ Vue.use(Router)
 // route-level code splitting
 const Index = () => import('../views/index.vue')
 
-export function createRouter () {
+export function createRouter() {
   return new Router({
     mode: 'history',
     fallback: false,

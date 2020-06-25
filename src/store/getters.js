@@ -1,5 +1,5 @@
 export default {
-  questionDataGetter (state) {
+  questionDataGetter(state) {
     return state.questionsData
   }
 }

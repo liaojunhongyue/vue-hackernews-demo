@@ -9,7 +9,7 @@ document.body.appendChild(bar.$el)
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
-  beforeRouteUpdate (to, from, next) {
+  beforeRouteUpdate(to, from, next) {
     const { asyncData } = this.$options
     if (asyncData) {
       asyncData({
@@ -63,6 +63,6 @@ router.onReady(() => {
 })
 
 // service worker
-if ('https:' === location.protocol && navigator.serviceWorker) {
+if (location.protocol === 'https:' && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }

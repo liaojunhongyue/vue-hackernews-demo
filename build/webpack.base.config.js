@@ -6,6 +6,10 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 const isProd = process.env.NODE_ENV === 'production'
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   devtool: isProd
     ? false
@@ -23,6 +27,15 @@ module.exports = {
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -46,6 +59,18 @@ module.exports = {
         }
       },
       {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: ['vue-style-loader', 'css-loader']
+      },
+      {
         test: /\.styl(us)?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
@@ -59,10 +84,6 @@ module.exports = {
               fallback: 'vue-style-loader'
             })
           : ['vue-style-loader', 'css-loader', 'stylus-loader']
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader'
       }
     ]
   },
