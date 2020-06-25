@@ -12,7 +12,7 @@ export function createRouter() {
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: '/', component: Index }
+      { path: '/:page?', component: Index }
     ]
   })
 }

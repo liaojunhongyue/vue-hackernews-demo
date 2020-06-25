@@ -71,6 +71,10 @@ module.exports = {
         loader: ['vue-style-loader', 'css-loader']
       },
       {
+        test: /\.less$/,
+        loader: ['vue-style-loader', 'css-loader', 'less-loader']
+      },
+      {
         test: /\.styl(us)?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
