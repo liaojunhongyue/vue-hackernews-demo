@@ -28,6 +28,7 @@
             layout="prev, pager, next"
             :page-size="9"
             :total="totalGetter"
+            @current-change="handleCurrentChange"
           />
         </div>
       </el-footer>
@@ -43,6 +44,16 @@ export default {
   },
   computed: {
     ...mapGetters(['questionDataGetter', 'totalGetter'])
+  },
+  methods: {
+    handleCurrentChange(val) {
+      this.$router.push({
+        name: 'Index',
+        params: {
+          page: val
+        }
+      })
+    }
   }
 }
 </script>
